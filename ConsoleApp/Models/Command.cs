@@ -6,7 +6,7 @@ public abstract class Command
 {
 	public abstract string Name { get; }
 	public abstract string Caller { get; }
-	public abstract string? Description { get; }
+	public abstract string Description { get; }
 	
 	protected ConsoleAppDbContext context { get; }
 	

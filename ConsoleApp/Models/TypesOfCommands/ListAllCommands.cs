@@ -11,19 +11,19 @@ public class ListAllCommands : Command
 	
 	public ListAllCommands(ConsoleAppDbContext context, List<Command> listOfCommands) : base(context)
 	{
-		commands = listOfCommands;
+		SetCommands(listOfCommands);
 	}
 
-	public void SetCommands(List<Command> commands)
+	public void SetCommands(List<Command> _commands)
 	{
-		this.commands = commands.OrderBy(c => c.Name).ToList();
+		commands = _commands.OrderBy(c => c.Name).ToList();
 	}
 	
 	protected override void RunContent()
 	{
 		Console.WriteLine("AVAILABLE COMMANDS:\n");
 
-		if (commands.Count == 0)
+		if (commands is null)
 		{
 			Console.WriteLine("No commands available.");
 			return;

@@ -15,11 +15,12 @@ void program()
 		
 	while (continueRunning)
 	{
-		Console.WriteLine("=======================");
+		Console.WriteLine("--------------------------");
 		Console.WriteLine("Enter your next command:\n");
 		string? command = Console.ReadLine();
 		command = command?.ToLower().Trim();
 
+		Console.Clear();
 		cmd.RunCommand(command);
 	}
 }

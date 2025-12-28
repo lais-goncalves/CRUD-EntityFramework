@@ -29,14 +29,17 @@ public class CommandFactory
 
 	private List<Command> defineCommands()
 	{
+		ListAllCommands listCommands = new (context, []);
+		
 		List<Command> _commands =
 		[
 			new Exit(context),
-			new RegisterPerson(context)
+			new RegisterPerson(context),
+			new ListPeople(context),
+			listCommands
 		];
 		
-		_commands.Add(new ListAllCommands(context, _commands));
-
+		listCommands.SetCommands(_commands);
 		return _commands;
 	}
 
