@@ -13,6 +13,7 @@ public class Exit : Command
 	
 	protected override void RunContent()
 	{
+		Console.WriteLine("> Exiting program...");
 		Environment.Exit(0);
 	}
 }

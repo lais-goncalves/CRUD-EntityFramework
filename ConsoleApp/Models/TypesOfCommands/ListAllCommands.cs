@@ -21,7 +21,8 @@ public class ListAllCommands : Command
 	
 	protected override void RunContent()
 	{
-		Console.WriteLine("AVAILABLE COMMANDS:\n");
+		Console.WriteLine("> Fetching all available commands...\n");
+		Console.WriteLine("Available commands:");
 
 		if (commands is null)
 		{

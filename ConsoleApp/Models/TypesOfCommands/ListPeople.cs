@@ -4,21 +4,21 @@ namespace ConsoleApp.Models.TypesOfCommands;
 
 public class ListPeople : Command
 {
-	public override string Name => "List registered people";
-	public override string Caller => "list-people";
-	public override string Description => "Lists all registered people in the DataBase.";
+	public override string Name => "List registered persons";
+	public override string Caller => "list-persons";
+	public override string Description => "Lists all registered persons in the DataBase.";
 	
 	public ListPeople(ConsoleAppDbContext context) : base(context) { }
 	
 	protected override void RunContent()
 	{
-		Console.WriteLine("Fetching all people from the database...\n");
-		
-		List<Person> people = context.People.ToList();
+		Console.WriteLine("> Fetching all persons from the DataBase...\n");
+		List<Person> persons = context.People.OrderBy(x => x.Id).ToList();
 
-		foreach (Person person in people)
+		Console.WriteLine("All registered persons in the DataBase:");
+		foreach (Person person in persons)
 		{
-			Console.WriteLine($"Person #{person.Id}'s name: {person.Name} | Age: {person.Age}");
+			Console.WriteLine($"{person.Id} - Name: {person.Name} | Age: {person.Age}");
 		}
 	}
 }

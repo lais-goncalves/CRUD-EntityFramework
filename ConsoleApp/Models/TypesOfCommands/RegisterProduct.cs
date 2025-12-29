@@ -21,7 +21,7 @@ public class RegisterProduct(ConsoleAppDbContext context) : Command(context)
 		Console.Write("Enter its description: ");
 		string? description = Console.ReadLine();
 			
-		Console.WriteLine($"\nRegistering product '{name}'...");
+		Console.WriteLine($"\n>Registering product '{name}'...");
 			
 		var product = new Product(name, description ?? "");
 		context.Add(product);

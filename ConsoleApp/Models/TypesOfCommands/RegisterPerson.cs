@@ -22,7 +22,7 @@ public class RegisterPerson(ConsoleAppDbContext context) : Command(context)
 		string? age = Console.ReadLine();
 		_ = int.TryParse(age, out int ageInt);
 			
-		Console.WriteLine($"\nRegistering person '{name}'...");
+		Console.WriteLine($"\n> Registering person '{name}'...");
 			
 		var person = new Person(name, ageInt);
 		context.Add(person);

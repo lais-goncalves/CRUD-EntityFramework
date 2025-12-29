@@ -21,7 +21,7 @@ public class CommandFactory
 		switch (command)
 		{
 			case null:
-				Console.WriteLine($"Command '{commandCaller}' not found.");
+				Console.WriteLine($"The command '{commandCaller}' was not found.\n");
 				return;
 			default:   command.Run(); break;
 		}
@@ -43,59 +43,5 @@ public class CommandFactory
 		
 		listCommands.SetCommands(_commands);
 		return _commands;
-	}
-
-	public void ListPeople()
-	{
-		Console.WriteLine("'list-people' command chosen...\n");
-		
-		List<Person> people = context.People.OrderBy(x => x.Id).ToList();
-		foreach (Person person in people)
-		{
-			Console.WriteLine($"Person #{person.Id}: '{person.Name}', is {person.Age} years old.");
-		}
-	}
-	
-	public void ListProducts()
-	{
-		Console.WriteLine("'list-products' command chosen...\n");
-		
-		List<Product> products = context.Products.OrderBy(x => x.Id).ToList();
-		foreach (Product product in products)
-		{
-			Console.WriteLine($"Product #{product.Id}: '{product.Name}', description: '{product.Description}'");
-		}
-	}
-	
-	public void RegisterProduct()
-	{
-		try
-		{
-			Console.WriteLine("'register-product' command chosen...\n");
-			
-			Console.Write("Enter the product's name: ");
-			string? name = Console.ReadLine();
-			
-			if (name == null)
-			{
-				throw new Exception("Name cannot be null.");
-			}
-			
-			Console.Write("Enter the product's description: ");
-			string description = Console.ReadLine() ?? "";
-			
-			Console.WriteLine($"\nRegistering product '{name}'...");
-			
-			var product = new Product(name, description);
-			context.Add(product);
-			context.SaveChanges();
-			
-			Console.WriteLine($"Product '{name}' was successfully registered.");
-		}
-
-		catch (Exception)
-		{
-			throw new Exception("Something went wrong. Try again.");
-		}
 	}
 }

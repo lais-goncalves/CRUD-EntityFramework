@@ -12,13 +12,13 @@ public class ListProducts : Command
 	
 	protected override void RunContent()
 	{
-		Console.WriteLine("Fetching all products from the database...\n");
+		Console.WriteLine("> Fetching all products from the DataBase...\n");
+		List<Product> products = context.Products.OrderBy(x => x.Id).ToList();
 		
-		List<Product> products = context.Products.ToList();
-
+		Console.WriteLine("All registered products in the DataBase:");
 		foreach (Product product in products)
 		{
-			Console.WriteLine($"Product #{product.Id}'s name: {product.Name} | Description: '{product.Description}'");
+			Console.WriteLine($"{product.Id} - Name: {product.Name} | Description: '{product.Description}'");
 		}
 	}
 }
