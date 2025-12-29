@@ -36,6 +36,8 @@ public class CommandFactory
 			new Exit(context),
 			new RegisterPerson(context),
 			new ListPeople(context),
+			new RegisterProduct(context),
+			new ListProducts(context),
 			listCommands
 		];
 		

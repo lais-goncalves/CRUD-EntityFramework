@@ -10,7 +10,7 @@ public class RegisterPerson(ConsoleAppDbContext context) : Command(context)
 
 	protected override void RunContent()
 	{
-		Console.Write("Enter the person's name: ");
+		Console.Write("Enter the name of the person: ");
 		string? name = Console.ReadLine();
 			
 		if (name == null)
@@ -18,7 +18,7 @@ public class RegisterPerson(ConsoleAppDbContext context) : Command(context)
 			throw new Exception("Name cannot be null.");
 		}
 			
-		Console.Write("Enter the person's age: ");
+		Console.Write("Enter their age: ");
 		string? age = Console.ReadLine();
 		_ = int.TryParse(age, out int ageInt);
 			
